@@ -1,0 +1,95 @@
+@import "../../../styles/default";
+
+
+.box-wrapper{
+  background-color: transparent;
+  border: none;
+}
+
+
+.section-header{
+  padding-top: 55px;
+  background-color: $white;
+
+  &-title{
+    color: $gray;
+    text-align: center;
+  }
+
+  &-link{
+    color: $gray;
+  }
+
+  &-icon{
+    color: $gray !important;
+  }
+}
+
+
+.modal-dialog{
+  overflow-y: initial !important
+}
+.modal-body{
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.teachList-header{
+  text-align: center;
+}
+
+.teachList-more{
+  color: $green;
+}
+
+
+.addClass{
+  margin-bottom: 55px;
+  max-width: 20rem;
+  padding: 2rem;
+  text-align: center;
+
+  &__btn{
+    margin-bottom: .75rem;
+    color: $green;
+  }
+
+}
+
+.panel{
+  max-height: 180px;
+  min-height: 180px;
+}
+
+.panel-body{
+  cursor: pointer;
+  min-height: 120px;
+
+  &-description{
+    color: $gray;
+  }
+}
+
+.panel-footer {
+  padding: 15px 10px;
+  background-color: transparent;
+  border: none;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.fa-cog{
+  cursor: pointer;
+  font-size: 18px;
+  color: $green;
+}
+
+.dropdown-menu{
+  position: absolute;
+}
+
+
+.list-group-item:hover{
+  cursor: pointer;
+  background-color: $light-gray;
+}

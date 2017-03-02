@@ -1,0 +1,101 @@
+.btn{
+  border: none;
+  outline: none !important;
+}
+
+.btn-back{
+  margin-top: -5px;
+}
+
+.btn-gray{
+  background-color: $light-gray;
+  color: $black;
+}
+
+.btn-white{
+  background-color: $white;
+  color: $black;
+}
+
+.btn-green{
+  background-color: $green;
+  color: $white;
+}
+
+.btn-info{
+  background-color: $light-blue;
+  color: $white;
+}
+
+.btn-orenge{
+  background-color: $orenge;
+  color: $white;
+}
+
+
+.progress, .progress-bar{
+  height: 10px;
+  font-size: 10px;
+  line-height: 10px;
+  margin-bottom: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.progress-bar-info{
+  background-color: $light-blue;
+}
+
+.progress-bar-success{
+  background-color: $green;
+}
+
+.progress-bar-warning{
+  background-color: $yellow;
+}
+
+.progress-bar-danger{
+  background-color: $red;
+}
+
+.panel-default {
+  max-height: 150px;
+  min-height: 150px;
+  background-color: $white;
+  border: 1px solid;
+  border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+  border-radius: 3px;
+}
+
+.panel-default>.panel-heading {
+  //padding-top: 45px;
+  background-color: transparent;
+  border: none;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.panel-title{
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.panel-body{
+  text-align: center;
+}
+
+.panel-footer{
+  background-color: transparent;
+  border: none;
+}
+
+.badge{
+  font-size: 18px;
+  color: $white;
+  background-color: $yellow !important;
+}
+
+
+.on-checked{
+  cursor: pointer;
+}

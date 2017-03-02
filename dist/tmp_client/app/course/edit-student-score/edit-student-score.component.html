@@ -1,0 +1,50 @@
+<div class="section-header">
+  <div class="container" style="margin-top: 55px;">
+    <div class="row">
+      <div class="col-xs-12">
+        <a class="section-header-link link" (click)="cancel()" routerLinkActive="true">
+          <i class="section-header-icon fa fa-chevron-left" aria-hidden="true"></i> ย้อนกลับ</a>
+        <h3 class="section-header-title">แก้ไข XP ของนักเรียน</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="lms-body">
+  <div class="container">
+
+        <div class="row box-wrapper">
+
+
+            <form style="max-width: 800px" class="center" *ngIf="uploadStete == 'add_xp'" ngNoForm action="http://52.77.209.241/laravel/public/api/v1/import"
+                  method="post" enctype="multipart/form-data" novalidate>
+                <h5 style="margin-bottom: 15px">ขั้นตอนปรับแก้ XP ของนักเรียน<hr></h5>
+                <div class="form-group row">
+                    <label for="add_xp_step1" class="col-sm-8 col-form-label"><span class="step-tag tag tag-info">ขั้นตอนที่ 1</span> Download ไฟล์ต้นฉบับ (Excel)</label>
+                    <div class="col-sm-4">
+                      <a [href]="downloadPath" id="add_xp_step1" *ngIf="selectedId != null">Download</a>
+                      <!--<a (click)="download()" id="add_xp_step1" *ngIf="selectedId != null">Download</a>-->
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-12 col-form-label"><span class="step-tag tag tag-info">ขั้นตอนที่ 2</span> ปรับแก้ข้อมูลที่ Export มาโดยแก้ไขค่า XP ล่าสุดของนักเรียนแต่ละคนและบันทึกลงไฟล์เดิม</label>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-8 col-form-label"><span class="step-tag tag tag-info">ขั้นตอนที่ 3</span> Upload ไฟล์ XP ของนักเรียน (Excel) เข้าสู่ระบบ</label>
+                    <div class="col-sm-4">
+                        <input type="file" class="form-control" name="file">
+                        <span class='label label-info' id="upload-file-info"></span>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group row pull-xs-right">
+                    <div class="col-sm-12">
+                        <button type="button" class="btn btn-secondary" (click)="goBack()">ยกเลิก</button>
+                        <button type="submit" class="btn btn-info">Upload</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,113 @@
+@import "../../../styles/default";
+
+
+.lms-body{
+  margin-top: 0;
+}
+.container{
+  margin-top: 45px;
+}
+
+.box-wrapper{
+  background-color: transparent;
+  border: none;
+}
+
+.section-header{
+  padding-top: 55px;
+  background-color: $light-gray;
+
+  &-title{
+    color: $gray;
+  }
+
+  &-link{
+    color:  $gray;
+  }
+
+  &-icon{
+    color: $gray !important;
+  }
+}
+
+
+.goBack{
+  float: left;
+  margin-right: 15px;
+  margin-top: -5px;
+}
+
+.dropdown{
+  float: right;
+}
+
+.dropdown-setting{
+  margin-top: -5px;
+}
+
+
+.level-tag{
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  /* padding: 10px 10px 0px 10px; */
+  border-radius: 1em;
+  width: 40px;
+  border: solid 4px white;
+  color: $white;
+  background-color: $yellow;
+}
+
+:host/deep/.ui-growl, .ui-widget{
+  z-index: 2000;
+}
+
+.fa-cog{
+  color: $gray;
+}
+
+.information{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+
+.panel{
+  max-height: none;
+  min-height: inherit;
+}
+
+.panel-body{
+  cursor: pointer;
+  min-height: inherit;
+}
+
+
+.showHighScore{
+  float: none;
+  text-align: center;
+}
+
+.showHighScore-menu{
+  float: none;
+  text-align: center;
+  right: 0;
+  left: -10px;
+  width: 50px;
+  margin: 0 auto;
+}
+
+
+.highScoreRow{
+  padding: 5px;
+}
+
+.odd{
+  @extend .highScoreRow;
+  background-color: $light-gray;
+}
+
+.even {
+  @extend .highScoreRow;
+  background-color: $white;
+}

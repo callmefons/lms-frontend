@@ -1,0 +1,57 @@
+@import "../../styles/default";
+
+
+.container{
+  margin-top: 0 !important;
+}
+
+.navbar{
+  position: fixed;
+  opacity: .99;
+  z-index: 999;
+}
+
+.navbar-nav{
+  float: none;
+}
+
+.navbar-home{
+  background-color: $white;
+  color: $black;
+  min-height: 80px;
+  padding-top: 15px;
+}
+
+.navbar-login{
+  background-color: $light-blue;
+  color: $white;
+}
+
+.btn-toggle{
+  color: $black;
+}
+
+.btn-signup{
+  margin-top: 10px;
+}
+
+.myHeader-name{
+  color: $white;
+}
+
+.navbar-brand{
+  margin-top: -10px;
+}
+
+.navbar-brand>img {
+  display: block;
+  max-height: 35px;
+  float: left;
+  margin-right: 15px;
+}
+
+.navbar-default .navbar-nav>.open>a{
+  background-color: transparent;
+}
+
+

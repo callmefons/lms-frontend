@@ -1,0 +1,29 @@
+@import "../../../styles/default";
+
+.center{
+  margin: 0 auto;
+}
+
+
+.box-wrapper{
+  background-color: $white;
+  border: none;
+}
+
+.section-header{
+  padding-top: 45px;
+  background-color: $white;
+
+  &-title{
+    color: $gray;
+  }
+
+  &-link{
+    color: $gray;
+  }
+
+  &-icon{
+    color: $gray !important;
+  }
+}
+

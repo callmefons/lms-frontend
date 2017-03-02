@@ -1,0 +1,190 @@
+<div class="section-header">
+  <div class="container" style="margin-top: 55px; padding-bottom: 15px;">
+    <div class="row">
+      <div class="col-xs-12">
+        <a class="section-header-link link" (click)="cancel()" routerLinkActive="true" style="margin-right: 5px">
+          <i class="section-header-icon fa fa-chevron-left" aria-hidden="true"></i> ย้อนกลับ
+        </a>
+        <a (click)="home()" class="section-header-link link"><i class="fa fa-home" aria-hidden="true"></i></a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="section-header-title">Webboard</h3>
+      </div>
+      <div class="col-md-6">
+        <button class="btn btn-success pull-right" (click)="createPost()" *ngIf="post == null && role">สร้างข้อความใหม่</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="lms-body">
+
+  <div class="container" *ngIf="post == null">
+    <div class="row box-wrapper">
+       <p>ยังไม่มีข้อความเวลานี้</p>
+    </div>
+  </div>
+
+    <div class="container" *ngIf="post != null">
+    <div class="row box-wrapper">
+
+      <div class="panel panel-default">
+        <div class="panel-heading" style="text-align: left">
+          <p><i class="fa fa-user" aria-hidden="true"></i> {{teacher.name}}</p>
+        </div>
+        <div class="panel-body">
+          <div *ngIf="isEditPost">
+            <input type="text" class="form-control" [(ngModel)]="post.title" name="post_title" style="margin-bottom: 15px">
+            <textarea rows="10" class="form-control" id="post_detail" name="post_detail" #post_detail style="margin-bottom: 15px;">{{post.detail}}</textarea>
+            <div class="pull-right">
+              <button type="button" class="btn btn-secondary" (click)="isEditPost = !isEditPost">ยกเลิก</button>
+              <button class="btn btn-green" (click)="editPost(post.id, post.title, post_detail.value)">แก้ไข</button>
+            </div>
+          </div>
+          <div *ngIf="!isEditPost" style="padding: 15px">
+            <h2 style="margin-bottom: 15px;">{{post.title}}</h2>
+            <h5>{{post.detail}}</h5>
+          </div>
+        </div>
+        <div class="panel-footer" style="text-align: right">
+          <small style="margin-right: 15px">{{post.updated_at}}</small>
+          <div class="dropdown pull-right" *ngIf="role">
+            <span dropdown-toggle="dropdown"
+                  id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <i class="fa fa-cog link" aria-hidden="true" ></i>
+            </span>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="right: 0; left: inherit" *ngIf="role">
+              <li><a class="link" (click)="isEditPost = !isEditPost">แก้ไขข้อความ</a></li>
+              <li><a class="link" (click)="deletePost(post.id)">ลบข้อความ</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div style="margin-bottom: 15px;">
+        <small class="text-muted"><i class="fa fa-comments-o" aria-hidden="true"></i> {{comments.length}} ความคิดเห็น</small>
+      </div>
+      <div class="row">
+        <div class="col-xs-12" *ngFor="let comment of comments">
+          <div class="panel panel-default panel-comment">
+
+            <div class="panel-heading" >
+
+              <div class="row">
+                <div class="col-xs-6">
+                  <p style="text-align: left"><i class="fa fa-user" aria-hidden="true"></i> {{comment.comment.name}}</p>
+                </div>
+                <div class="col-xs-6">
+                  <div style="text-align: right">
+                    <small style="margin-right: 15px">{{comment.comment.updated_at}}</small>
+                    <div class="dropdown pull-right" *ngIf="role || student_id == comment.comment.user_id">
+                  <span dropdown-toggle="dropdown" [id]="comment" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <i class="fa fa-cog link" aria-hidden="true" ></i></span>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="right: 0; left: inherit">
+                        <li><a class="link" (click)="editModeComment(comment.comment.id)" *ngIf="teacher_id == comment.comment.user_id || student_id == comment.comment.user_id">แก้ไขข้อความ</a></li>
+                        <li><a class="link" (click)="deleteComment(comment.comment.id)">ลบข้อความ</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel-body">
+              <h5 *ngIf="edit_comment_id != comment.comment.id">{{comment.comment.detail}}</h5>
+              <div *ngIf="edit_comment_id == comment.comment.id">
+                <textarea rows="3" class="form-control" id="comment_detail" name="comment_detail" #comment_detail style="margin-bottom: 15px;">{{comment.comment.detail}}</textarea>
+                <div class="pull-right">
+                  <button type="button" class="btn btn-secondary" (click)="cancelEdit()">ยกเลิก</button>
+                  <button class="btn btn-green" (click)="editComment(comment.comment.id, comment_detail.value)">แก้ไข</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel-footer">
+              <a class="pull-right" (click)="onReply(comment.comment.id)"><i class="fa fa-reply" aria-hidden="true"></i> ตอบกลับ</a>
+              <a (click)="onShowReplyComment(comment.comment.id)" *ngIf="comment.comment.showReplyComment">ซ่อนความเห็นย่อย</a>
+              <a (click)="onShowReplyComment(comment.comment.id)" *ngIf="!comment.comment.showReplyComment">ดู {{comment.reply_comments.length}} ความเห็นย่อย</a>
+
+            </div>
+
+            <div *ngIf="comment.comment.showReplyComment">
+              <div class="row replyComment">
+                <div class="col-xs-12" *ngFor="let replyComment of comment.reply_comments">
+                  <div class="panel-replyComment panel panel-default">
+                    <div class="panel-heading" style="text-align: left">
+
+                      <div class="row">
+                        <div class="col-xs-6">
+                          <small><i class="fa fa-user" aria-hidden="true"></i> {{replyComment.name}}</small>
+                        </div>
+                        <div class="col-xs-6">
+                          <div style="text-align: right">
+                            <small style="margin-right: 15px">{{replyComment.updated_at}}</small>
+                            <div class="dropdown pull-right" *ngIf="role || replyComment.user_id == student_id">
+                  <span dropdown-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <i class="fa fa-cog link" aria-hidden="true" ></i></span>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="right: 0; left: inherit">
+                                <li><a class="link" (click)="editModeReplyComment(replyComment.id)" *ngIf="teacher_id == replyComment.user_id || replyComment.user_id == student_id">แก้ไขข้อความ</a></li>
+                                <li><a class="link" (click)="deleteReplyComment(replyComment.id)">ลบข้อความ</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="panel-body">
+                      <h5 *ngIf="edit_reply_comment_id != replyComment.id">{{replyComment.detail}}</h5>
+                      <div *ngIf="edit_reply_comment_id == replyComment.id">
+                        <textarea rows="3" class="form-control" id="reply_comment_detail" name="reply_comment_detail" #reply_comment_detail style="margin-bottom: 15px;">{{replyComment.detail}}</textarea>
+                        <div class="pull-right">
+                          <button type="button" class="btn btn-secondary" (click)="edit_reply_comment_id = null;">ยกเลิก</button>
+                          <button class="btn btn-green" (click)="editReplyComment(replyComment.id, reply_comment_detail.value)">แก้ไข</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="isReply && replyId == comment.comment.id" class="textboxReplyComment">
+              <textarea rows="3" class="form-control" #textReplyComment style="margin-bottom: 15px;"></textarea>
+              <div style="text-align: right">
+                <button type="button" class="btn btn-secondary" (click)="cancelReply()">ยกเลิก</button>
+                <button class="btn btn-green" (click)="replyComment(comment.comment.id, textReplyComment.value)">ส่งข้อความ</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <form class="center" [formGroup]="commentForm" novalidate autocomplete="off">
+        <hr>
+        <h6 class="text-muted" style="margin-bottom: 15px"><i class="zmdi zmdi-comment-alt"></i> แสดงความคิดเห็น
+          <hr>
+        </h6>
+
+        <div class="form-group row">
+          <div class="col-sm-12">
+        <textarea rows="5" class="form-control" id="detail" name="detail"
+                  formControlName="detail" [(ngModel)]="commentForm.detail">
+        </textarea>
+          </div>
+        </div>
+
+        <hr>
+        <div class="form-group row pull-right">
+          <div class="col-sm-12">
+            <button type="button" class="btn btn-secondary" (click)="reset()">ยกเลิก</button>
+            <button type="submit" class="btn btn-green" (click)="postComment()">ส่งข้อความ</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

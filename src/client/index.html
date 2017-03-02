@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="<%= APP_BASE %>">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title><%= APP_TITLE %></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- inject:css -->
+  <!-- endinject -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Kanit:200,300,400,500,600,700" rel="stylesheet">
+
+</head>
+<body style="background-color: #f0f2f1!important;">
+
+  <app></app>
+
+  <script>
+  // Fixes undefined module function in SystemJS bundle
+  function module() {}
+  </script>
+
+  <!-- shims:js -->
+  <!-- endinject -->
+
+  <% if (ENV === 'dev') { %>
+  <script src="<%= APP_BASE %>app/system-config.js"></script>
+  <% } %>
+
+  <!-- libs:js -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.4/lodash.min.js"></script>
+  <!-- endinject -->
+
+  <!-- inject:js -->
+  <!-- endinject -->
+
+  <% if (ENV === 'dev') { %>
+  <script>
+  System.import('<%= BOOTSTRAP_MODULE %>')
+    .catch(function (e) {
+      console.error(e,
+        'Report this error at https://github.com/mgechev/angular2-seed/issues');
+    });
+  </script>
+  <% } %>
+
+</body>
+</html>

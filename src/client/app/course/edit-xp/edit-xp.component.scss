@@ -1,0 +1,33 @@
+@import "../../../styles/default";
+
+.box-title{
+  color: $dark-blue;
+  margin-bottom: 15px;
+}
+
+.section-header{
+  padding-top: 45px;
+  background-color: $white;
+
+  &-title{
+    color: $gray;
+  }
+
+  &-link{
+    color: $gray;
+  }
+
+  &-icon{
+    color: $gray !important;
+  }
+}
+
+
+.fa{
+  color: $gray;
+  cursor: pointer;
+}
+
+.box-wrapper{
+  padding: 45px;
+}

@@ -1,0 +1,38 @@
+@import "../../../styles/default";
+
+
+.box-wrapper{
+  background-color: transparent;
+  border: none;
+}
+
+.section-header{
+  padding-top: 45px;
+  background-color: $white;
+
+  &-title{
+    color: $gray;
+  }
+
+  &-link{
+    color: $gray;
+  }
+
+  &-icon{
+    color: $gray !important;
+  }
+}
+
+.panel{
+  max-height: none;
+  min-height: inherit;
+}
+
+.panel-body{
+  min-height: inherit;
+}
+
+.panel-footer{
+  cursor: pointer;
+  text-align: center;
+}

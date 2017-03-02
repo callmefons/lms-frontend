@@ -1,0 +1,21 @@
+@import "../../../styles/default";
+
+
+.section-header{
+  padding-top: 15px;
+  margin-top: -45px;
+  background-color: $blue;
+
+  &-title{
+    color: $white;
+  }
+
+  &-link{
+    color:  $white;
+  }
+
+  &-icon{
+    color: $white !important;
+  }
+}
+
