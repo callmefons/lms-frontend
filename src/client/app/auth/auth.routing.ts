@@ -9,6 +9,7 @@ import {AuthGuard} from "./auth-guard.service";
 import {AuthComponent} from "./auth.component";
 import {ForgotPasswordComponent} from "./forgotpassword/forgotpassword.component";
 import {ResetPasswordComponent} from "./resetpassword/resetpassword.component";
+import {ForgotPasswordStudentComponent} from "./forgotpasswordstudent/forgotpasswordstudent.component";
 
 const authRoutes: Routes = [{
   path: 'auth',
@@ -17,6 +18,7 @@ const authRoutes: Routes = [{
     { path: 'signin',  component: SigninComponent },
     { path: 'signup',  component: SignupComponent },
     { path: 'forgotpassword',  component: ForgotPasswordComponent },
+    { path: 'forgotpasswordstudent',  component: ForgotPasswordStudentComponent },
     { path: 'password/reset/:token',  component: ResetPasswordComponent },
   ]
 }];

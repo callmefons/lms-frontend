@@ -8,6 +8,7 @@ import {SignupComponent} from "./signup.component";
 import {AuthComponent} from "./auth.component";
 import {ForgotPasswordComponent} from "./forgotpassword/forgotpassword.component";
 import {ResetPasswordComponent} from "./resetpassword/resetpassword.component";
+import {ForgotPasswordStudentComponent} from "./forgotpasswordstudent/forgotpasswordstudent.component";
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import {ResetPasswordComponent} from "./resetpassword/resetpassword.component";
     SigninComponent,
     SignupComponent,
     ForgotPasswordComponent,
+    ForgotPasswordStudentComponent,
     ResetPasswordComponent
   ]
 })

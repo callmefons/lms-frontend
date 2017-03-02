@@ -44,6 +44,15 @@ export class AuthService {
         .cache();
     }
 
+    forgotPasswordStudent (email: any): Observable<any> {
+      let body = JSON.stringify(email);
+      return this.http.post(`${apiUrl}password/email/student`, body, xhrHeaders())
+        .map((res) => res.json())
+        .cache();
+    }
+
+
+
     resetPassword (password: any): Observable<any> {
       let body = JSON.stringify(password);
       return this.http.post(`${apiUrl}password/reset`, body, xhrHeaders())

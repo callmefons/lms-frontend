@@ -41,6 +41,12 @@ var AuthService = (function () {
             .map(function (res) { return res.json(); })
             .cache();
     };
+    AuthService.prototype.forgotPasswordStudent = function (email) {
+        var body = JSON.stringify(email);
+        return this.http.post(config_1.apiUrl + "password/email/student", body, xhr_headers_1.xhrHeaders())
+            .map(function (res) { return res.json(); })
+            .cache();
+    };
     AuthService.prototype.resetPassword = function (password) {
         var body = JSON.stringify(password);
         return this.http.post(config_1.apiUrl + "password/reset", body, xhr_headers_1.xhrHeaders())

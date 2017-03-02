@@ -16,6 +16,7 @@ var signup_component_1 = require("./signup.component");
 var auth_component_1 = require("./auth.component");
 var forgotpassword_component_1 = require("./forgotpassword/forgotpassword.component");
 var resetpassword_component_1 = require("./resetpassword/resetpassword.component");
+var forgotpasswordstudent_component_1 = require("./forgotpasswordstudent/forgotpasswordstudent.component");
 var AuthModule = (function () {
     function AuthModule() {
     }
@@ -30,6 +31,7 @@ var AuthModule = (function () {
                 signin_component_1.SigninComponent,
                 signup_component_1.SignupComponent,
                 forgotpassword_component_1.ForgotPasswordComponent,
+                forgotpasswordstudent_component_1.ForgotPasswordStudentComponent,
                 resetpassword_component_1.ResetPasswordComponent
             ]
         }), 
