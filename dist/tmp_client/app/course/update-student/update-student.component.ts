@@ -6,6 +6,7 @@ import {ImageResult, ResizeOptions} from "ng2-imageupload";
 import {Student} from "../../models/student";
 import {Message} from "primeng/components/common/api";
 import {msg} from '../../services/message-service';
+import {apiUrl} from "../../services/config";
 
 declare var _ : any;
 
@@ -107,7 +108,7 @@ export class UpdateStudentComponent {
   }
 
   csvStudents: Student[] = [];
-  downloadPath: string = '';
+  downloadPath: string = `${apiUrl}downloadSamepleExcel`;
 
   readFile(fileInput:any): any[] {
     var reader = new FileReader();

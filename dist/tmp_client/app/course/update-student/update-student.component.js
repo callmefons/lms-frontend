@@ -14,6 +14,7 @@ var forms_1 = require("@angular/forms");
 var router_1 = require("@angular/router");
 var student_1 = require("../../models/student");
 var message_service_1 = require('../../services/message-service');
+var config_1 = require("../../services/config");
 var updateStudents = (function () {
     function updateStudents(course_id, students) {
         this.course_id = course_id;
@@ -46,7 +47,7 @@ var UpdateStudentComponent = (function () {
         this.check = 'manual';
         this.students = [];
         this.csvStudents = [];
-        this.downloadPath = '';
+        this.downloadPath = config_1.apiUrl + "downloadSamepleExcel";
         this.image = '';
         this.resizeOptions = {
             resizeMaxHeight: 150,

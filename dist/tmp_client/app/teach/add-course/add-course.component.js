@@ -45,7 +45,7 @@ var AddCourseComponent = (function () {
         this.students = [];
         this.editStudentMode = false;
         this.csvStudents = [];
-        this.downloadPath = config_1.frontUrl + "sample.csv";
+        this.downloadPath = config_1.apiUrl + "downloadSamepleExcel";
         this.image = '';
         this.resizeOptions = {
             resizeMaxHeight: 150,

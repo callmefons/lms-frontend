@@ -4,7 +4,7 @@ import {Level} from "../../models/level";
 import {FormBuilder, Validators} from "@angular/forms";
 import {ImageResult, ResizeOptions} from "ng2-imageupload";
 import {Router} from "@angular/router";
-import {frontUrl} from '../../services/config';
+import {frontUrl, apiUrl} from '../../services/config';
 
 declare var _ : any;
 import {CourseService} from "../../services/course.service";
@@ -104,7 +104,7 @@ export class AddCourseComponent {
     }
 
     csvStudents: Student[] = [];
-    downloadPath: string = `${frontUrl}sample.csv`;
+    downloadPath: string = `${apiUrl}downloadSamepleExcel`;
 
    readFile(fileInput:any): any[] {
       var reader = new FileReader();
