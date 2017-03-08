@@ -50,7 +50,7 @@ export class NewPostComponent {
       .subscribe(
         (data: any) => {
 
-
+          //console.log(data)
           if(data.status == 'success'){
 
             let navigationExtras: NavigationExtras = {

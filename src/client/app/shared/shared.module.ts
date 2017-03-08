@@ -22,6 +22,7 @@ import {ProgressBarModule} from "primeng/components/progressbar/progressbar";
 import {WebboardService} from "../services/webboard.service";
 import {EqualValidator} from "../services/equal-validator.directive";
 import {DialogModule} from "primeng/components/dialog/dialog";
+import {Ng2FileInputModule} from "ng2-file-input";
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {DialogModule} from "primeng/components/dialog/dialog";
     GrowlModule,
     ProgressBarModule,
     ImageUploadModule,
-    DialogModule
+    DialogModule,
+    Ng2FileInputModule.forRoot()
   ],
   declarations: [
     HeaderComponent,
@@ -63,7 +65,8 @@ import {DialogModule} from "primeng/components/dialog/dialog";
     ControlMessagesComponent,
     FilterData,
     EqualValidator,
-    DialogModule
+    DialogModule,
+    Ng2FileInputModule
   ]
 })
 export class SharedModule {

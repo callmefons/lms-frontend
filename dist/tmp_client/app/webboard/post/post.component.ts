@@ -98,8 +98,9 @@ export class PostComponent {
             this.post = data.data.post;
             this.comments = data.data.comments;
 
-            console.log( this.post );
-            //console.log( this.comments );
+            //console.log( data );
+            this.teacher = data.data.teacher;
+            //console.log( this.teacher );
           }
 
         },

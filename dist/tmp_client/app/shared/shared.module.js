@@ -29,6 +29,7 @@ var progressbar_1 = require("primeng/components/progressbar/progressbar");
 var webboard_service_1 = require("../services/webboard.service");
 var equal_validator_directive_1 = require("../services/equal-validator.directive");
 var dialog_1 = require("primeng/components/dialog/dialog");
+var ng2_file_input_1 = require("ng2-file-input");
 var SharedModule = (function () {
     function SharedModule() {
     }
@@ -57,7 +58,8 @@ var SharedModule = (function () {
                 growl_1.GrowlModule,
                 progressbar_1.ProgressBarModule,
                 ng2_imageupload_1.ImageUploadModule,
-                dialog_1.DialogModule
+                dialog_1.DialogModule,
+                ng2_file_input_1.Ng2FileInputModule.forRoot()
             ],
             declarations: [
                 header_component_1.HeaderComponent,
@@ -84,7 +86,8 @@ var SharedModule = (function () {
                 control_messages_component_1.ControlMessagesComponent,
                 filterdata_pipe_1.FilterData,
                 equal_validator_directive_1.EqualValidator,
-                dialog_1.DialogModule
+                dialog_1.DialogModule,
+                ng2_file_input_1.Ng2FileInputModule
             ]
         }), 
         __metadata('design:paramtypes', [])

@@ -36,5 +36,12 @@ body{
 
 .forgotpassword>a{
   color: $gray;
+  text-decoration: underline;
+}
+
+a.activate{
+  color: $gray;
+  text-decoration: underline;
+  font-weight: bold;
 }
 

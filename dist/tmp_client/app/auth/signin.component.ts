@@ -22,8 +22,6 @@ export class SigninComponent {
   constructor(private authService: AuthService, private formBuilder: FormBuilder, private router: Router) {
     this.setMessage();
     this.createForm();
-
-    // router.events.subscribe(value => console.log(value));
   }
 
   setMessage() {

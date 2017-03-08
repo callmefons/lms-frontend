@@ -20,14 +20,11 @@ export class StudentService {
 
   constructor (private http: Http,  private authService: AuthService) {}
 
-
-    getStudent (id: any): Observable<any> {
-      return this.http.get(`${apiUrl}student/${id}?token=${this.authService.token}`)
-        .map((res) => res.json().data)
-        .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
-    }
-
-
+  getStudent (id: any): Observable<any> {
+    return this.http.get(`${apiUrl}student/${id}?token=${this.authService.token}`)
+      .map((res) => res.json().data)
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
 
   getStudentBadge (id: any): Observable<any> {
     return this.http.get(`${apiUrl}student/${id}/badge?token=${this.authService.token}`)

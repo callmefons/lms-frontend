@@ -31,8 +31,14 @@ var AuthService = (function () {
     };
     AuthService.prototype.studentSignin = function (student) {
         var body = JSON.stringify(student);
-        return this.http.post(config_1.apiUrl + "user/signin/student", body, xhr_headers_1.xhrHeaders())
-            .map(function (res) { return res.json(); })
+        return this.http.post(config_1.apiUrl + "user/signin", body, xhr_headers_1.xhrHeaders())
+            .map(function (res) { res.json(); })
+            .cache();
+    };
+    AuthService.prototype.sendActivationMail = function (obj) {
+        var body = JSON.stringify(obj);
+        return this.http.post(config_1.apiUrl + "user/sendActivationMail", body, xhr_headers_1.xhrHeaders())
+            .map(function (res) { res.json(); })
             .cache();
     };
     AuthService.prototype.forgotPassword = function (email) {
@@ -41,8 +47,8 @@ var AuthService = (function () {
             .map(function (res) { return res.json(); })
             .cache();
     };
-    AuthService.prototype.forgotPasswordStudent = function (email) {
-        var body = JSON.stringify(email);
+    AuthService.prototype.forgotPasswordStudent = function (obj) {
+        var body = JSON.stringify(obj);
         return this.http.post(config_1.apiUrl + "password/email/student", body, xhr_headers_1.xhrHeaders())
             .map(function (res) { return res.json(); })
             .cache();

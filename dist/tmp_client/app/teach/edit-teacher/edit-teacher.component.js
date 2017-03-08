@@ -59,11 +59,11 @@ var EditTeacherComponent = (function () {
             'title': ['นาย'],
             'position': ['ครูอัตราจ้าง'],
             'id_card': ['', [forms_1.Validators.required, validation_service_1.ValidationService.isNumber, forms_1.Validators.minLength(13), forms_1.Validators.maxLength(13)]],
-            'phone': ['', [forms_1.Validators.required, validation_service_1.ValidationService.isNumber]],
-            'address': ['', [forms_1.Validators.required]],
-            'teaching_level': ['', [forms_1.Validators.required]],
-            'institution': ['', [forms_1.Validators.required]],
-            'province': ['', [forms_1.Validators.required]]
+            'phone': [''],
+            'address': [''],
+            'teaching_level': [''],
+            'institution': [''],
+            'province': ['']
         });
     };
     EditTeacherComponent.prototype.reset = function () {

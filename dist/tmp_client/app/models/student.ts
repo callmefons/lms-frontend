@@ -13,7 +13,8 @@ export class Student {
     public selected? : boolean,
     public progressType?: any,
     public maxXP?: any,
-    public badges?: any[]
+    public badges?: any[],
+    public email?: any
 
   ) {}
 }

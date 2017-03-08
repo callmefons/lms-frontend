@@ -32,9 +32,16 @@ export class AuthService {
 
     studentSignin(student: Student) : Observable<any> {
         let body = JSON.stringify(student);
-        return this.http.post(`${apiUrl}user/signin/student`, body, xhrHeaders())
-            .map((res) => res.json())
+        return this.http.post(`${apiUrl}user/signin`, body, xhrHeaders())
+            .map((res) => {res.json()})
             .cache();
+    }
+
+    sendActivationMail(obj: any) : Observable<any> {
+      let body = JSON.stringify(obj);
+      return this.http.post(`${apiUrl}user/sendActivationMail`, body, xhrHeaders())
+        .map((res) => {res.json()})
+        .cache();
     }
 
     forgotPassword (email: any): Observable<any> {
@@ -44,13 +51,12 @@ export class AuthService {
         .cache();
     }
 
-    forgotPasswordStudent (email: any): Observable<any> {
-      let body = JSON.stringify(email);
+    forgotPasswordStudent (obj: any): Observable<any> {
+      let body = JSON.stringify(obj);
       return this.http.post(`${apiUrl}password/email/student`, body, xhrHeaders())
         .map((res) => res.json())
         .cache();
     }
-
 
 
     resetPassword (password: any): Observable<any> {

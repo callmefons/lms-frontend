@@ -9,6 +9,7 @@ import {AuthComponent} from "./auth.component";
 import {ForgotPasswordComponent} from "./forgotpassword/forgotpassword.component";
 import {ResetPasswordComponent} from "./resetpassword/resetpassword.component";
 import {ForgotPasswordStudentComponent} from "./forgotpasswordstudent/forgotpasswordstudent.component";
+import {ActivationComponent} from "./activation/activation.component";
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {ForgotPasswordStudentComponent} from "./forgotpasswordstudent/forgotpass
     SignupComponent,
     ForgotPasswordComponent,
     ForgotPasswordStudentComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    ActivationComponent
   ]
 })
 export class AuthModule {}

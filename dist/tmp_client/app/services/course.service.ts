@@ -57,6 +57,11 @@ export class CourseService {
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
+  downloadUpdateStudent(): Observable<any>{
+    return this.http.get(`${apiUrl}downloadUpdateStudent`)
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
   editCourse(course: Course): Observable<Course>{
     let body = JSON.stringify(course);
     return this.http.put(`${apiUrl}course/edit?token=${this.authService.token}`, body, xhrHeaders())

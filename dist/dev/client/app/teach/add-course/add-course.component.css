@@ -236,4 +236,10 @@ textarea {
 .box-wrapper {
   padding: 45px; }
 
+input[type=file] {
+  display: block;
+  border: none;
+  box-shadow: none;
+  padding: 0; }
+
 /*# sourceMappingURL=add-course.component.css.map */

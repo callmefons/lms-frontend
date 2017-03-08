@@ -244,6 +244,12 @@ body {
   margin-bottom: -15px; }
 
 .forgotpassword > a {
-  color: #848484; }
+  color: #848484;
+  text-decoration: underline; }
+
+a.activate {
+  color: #848484;
+  text-decoration: underline;
+  font-weight: bold; }
 
 /*# sourceMappingURL=student-signin.component.css.map */

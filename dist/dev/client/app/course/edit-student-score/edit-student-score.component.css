@@ -228,4 +228,9 @@ textarea {
   .section-header-icon {
     color: #848484 !important; }
 
+input[type=file] {
+  display: block;
+  border: none;
+  box-shadow: none; }
+
 /*# sourceMappingURL=edit-student-score.component.css.map */

@@ -70,11 +70,11 @@ export class EditTeacherComponent implements OnInit{
         'title': ['นาย'],
         'position': ['ครูอัตราจ้าง'],
         'id_card': ['', [Validators.required, ValidationService.isNumber, Validators.minLength(13), Validators.maxLength(13)]],
-        'phone': ['', [Validators.required, ValidationService.isNumber]],
-        'address': ['', [Validators.required]],
-        'teaching_level': ['', [Validators.required]],
-        'institution': ['', [Validators.required]],
-        'province': ['', [Validators.required]]
+        'phone': [''],
+        'address': [''],
+        'teaching_level': [''],
+        'institution': [''],
+        'province': ['']
       });
     }
 

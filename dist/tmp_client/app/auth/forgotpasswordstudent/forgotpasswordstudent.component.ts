@@ -23,7 +23,8 @@ export class ForgotPasswordStudentComponent {
 
   createForm(){
     this.userForm = this.formBuilder.group({
-      'email': ['', [Validators.required]]
+      'email': ['', [Validators.required, ValidationService.emailValidator]],
+      'username': ['', [Validators.required]]
     });
   }
 
@@ -40,10 +41,11 @@ export class ForgotPasswordStudentComponent {
               (data: any) => {
                 if(data.status == 'success'){
                   this.router.navigate(['./student']);
+                  this.createForm();
                   this.isSending = false;
-                  //console.log(data);
+                  console.log(data);
                 }else {
-                  //console.log(data);
+                  console.log(data);
                   this.errorMessage = data.errormessage;
                   this.isSending = false;
                 }

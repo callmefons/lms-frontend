@@ -59,14 +59,7 @@ export class StudentDashboardComponent {
   ngOnInit() {
     this.student_id = this.authService.id;
     this.createEmailForm();
-
-    if(+localStorage.getItem('status') != 0){
-      this.activated = true;
-      this.getStudent(this.student_id);
-    }else {
-      this.activated = false;
-      //console.log('activate email');
-    }
+    this.getStudent(this.student_id);
   }
 
   errorMessageEmail: string;
@@ -83,29 +76,6 @@ export class StudentDashboardComponent {
     this.createEmailForm();
   }
 
-  sendEmailForm(email: any) {
-
-    this.isSending = true;
-
-    // this.authService.forgotPassword(email)
-    //   .subscribe(
-    //     (data: any) => {
-    //       if(data.status == 'success'){
-    //         this.router.navigate(['./auth/signin']);
-    //         this.isSending = false;
-    //         //console.log(data);
-    //       }else {
-    //         //console.log(data);
-    //         this.errorMessage = data.errormessage;
-    //         this.isSending = false;
-    //       }
-    //     },
-    //     (error:any) => {
-    //       console.log(error);
-    //     }
-    //   );
-  }
-
 
   newImage: boolean = false;
 
@@ -120,7 +90,6 @@ export class StudentDashboardComponent {
   createForm() {
     this.userForm = this.formBuilder.group({
       'student_id': ['', [Validators.required]],
-      'username': ['', [Validators.required]],
       'name': ['', [Validators.required]],
       'password': ['', [Validators.required]]
     });

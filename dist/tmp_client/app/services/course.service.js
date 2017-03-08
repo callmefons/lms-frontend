@@ -49,6 +49,10 @@ var CourseService = (function () {
             .map(function (res) { return res.json(); })
             .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });
     };
+    CourseService.prototype.downloadUpdateStudent = function () {
+        return this.http.get(config_1.apiUrl + "downloadUpdateStudent")
+            .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });
+    };
     CourseService.prototype.editCourse = function (course) {
         var body = JSON.stringify(course);
         return this.http.put(config_1.apiUrl + "course/edit?token=" + this.authService.token, body, xhr_headers_1.xhrHeaders())

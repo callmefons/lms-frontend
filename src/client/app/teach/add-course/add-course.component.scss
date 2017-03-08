@@ -32,3 +32,9 @@
   padding: 45px;
 }
 
+input[type=file] {
+  display: block;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}

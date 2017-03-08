@@ -39,8 +39,7 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<div class="" *ngIf="activated">
-  <div class="jumbotron courseNav">
+<div class="jumbotron courseNav">
     <div class="container">
       <div class="row center">
         <div class="col-xs-4 courseNavLink" data-toggle="modal" data-target="#viewLeaderboard">
@@ -56,7 +55,7 @@
     </div>
   </div>
   <div class="lms-body">
-    <div class="container" *ngIf="student != null && teacher!= null && course !=null">
+    <div class="container" *ngIf="student != null && teacher != null && course !=null">
 
       <div class="row box-wrapper" style="background: none; border: none">
         <div class="scrollable-content">
@@ -112,31 +111,40 @@
                 </div>
 
                 <div class="form-group row">
+                  <label for="name" class="col-sm-3 col-form-label">Email</label>
+                  <div class="col-sm-9">
+                    <p>{{student.email}}</p>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="name" class="col-sm-3 col-form-label">Username</label>
+                  <div class="col-sm-9">
+                    <p>{{student.username}}</p>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="password" class="col-sm-3 col-form-label">รหัสผ่าน</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" id="password" name="password" formControlName="password"
+                           [(ngModel)]="student.password">
+                  </div>
+                </div>
+
+                <div class="form-group row">
                   <label for="student_id" class="col-sm-3 col-form-label">รหัสนักเรียน</label>
                   <div class="col-sm-9">
                     <input type="text" class="form-control" id="student_id" name="student_id" formControlName="student_id"
                            [(ngModel)]="student.student_id">
                   </div>
                 </div>
-                <div class="form-group row">
-                  <label for="name" class="col-sm-3 col-form-label">Username</label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="username" name="username" formControlName="username"
-                           [(ngModel)]="student.username">
-                  </div>
-                </div>
+
                 <div class="form-group row">
                   <label for="name" class="col-sm-3 col-form-label">ชื่อ</label>
                   <div class="col-sm-9">
                     <input type="text" class="form-control" id="name" name="name" formControlName="name"
                            [(ngModel)]="student.name">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="password" class="col-sm-3 col-form-label">รหัสผ่าน</label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="password" name="password" formControlName="password"
-                           [(ngModel)]="student.password">
                   </div>
                 </div>
                 <hr>
@@ -200,7 +208,6 @@
           </div>
           <div class="modal-body" style="max-height: 350px; overflow-y: auto; overflow-x: hidden;">
 
-
             <div class="row">
               <!--Student Card-->
               <div class="col-xs-12" style="padding-right: 25px; padding-left: 25px">
@@ -253,31 +260,4 @@
       </div>
     </div>
   </div>
-</div>
 
-<div *ngIf="!activated">
-  <div class="lms-body" style="margin-top: 90px">
-    <div class="container">
-      <div class="row box-wrapper" style="background: none; border: none;   max-width: 550px;">
-        <h4>Please activated your email !</h4>
-        <hr>
-        <form [formGroup]="emailForm"  (ngSubmit)="send(emailForm.value)" novalidate >
-          <div class="form-group row">
-            <label for="email" class="col-sm-3 col-form-label">Email</label>
-            <div class="col-sm-9">
-              <input type="email" class="form-control" id="email" placeholder="Email"  name="email" formControlName="email">
-              <control-messages [control]="emailForm.controls.email"></control-messages>
-            </div>
-          </div>
-          <small class="form-text text-muted offset-sm-3 col-sm-9" *ngIf="isSending" style="float: left; margin-bottom: 15px;">กำลังส่งข้อมูล....</small>
-          <small class="text-danger" *ngIf="!isSending">{{errorMessageEmail}}</small>
-          <div class="form-group row submit">
-            <div class="col-sm-12">
-              <button type="submit" class="btn btn-green btn-block" [disabled]="!emailForm.valid || isSending">ส่ง</button>
-            </div>
-          </div>
-        </form>
-        </div>
-      </div>
-  </div>
-</div>

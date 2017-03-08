@@ -1,6 +1,7 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "../auth/auth.service";
+import { Http, Response } from '@angular/http';
 
 @Component({
   moduleId: module.id,
@@ -12,7 +13,7 @@ import {AuthService} from "../auth/auth.service";
 export class HomeComponent implements OnInit {
 
   images = new Array(8);
-  constructor(private router: Router, private  authService: AuthService){}
+  constructor(private router: Router, private  authService: AuthService, private http: Http){}
 
   ngOnInit(){
 
@@ -25,5 +26,6 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['/']);
     }
   }
+
 
 }

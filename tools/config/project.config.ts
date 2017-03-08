@@ -16,7 +16,7 @@ export class ProjectConfig extends SeedConfig {
   constructor() {
     super();
 
-    this.APP_TITLE = 'LMS';
+    this.APP_TITLE = 'GAMIFIED CLASSROOMS';
     this.SYSTEM_CONFIG_DEV.paths['ng2-imageupload'] = `${this.APP_BASE}node_modules/ng2-imageupload`;
     this.SYSTEM_BUILDER_CONFIG.packages['ng2-imageupload'] = { main: 'index.js', defaultExtension : 'js'};
     this.SYSTEM_CONFIG_DEV.paths['ng2-validation'] = `${this.APP_BASE}node_modules/ng2-validation`;
