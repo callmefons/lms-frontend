@@ -274,11 +274,11 @@ export class AddCourseComponent {
                 this.students
         );
 
-        console.log(newCourse);
+        //console.log(newCourse);
         this.courseService.createNewCourse(newCourse)
             .subscribe(
                 (data: any) => {
-                    console.log(data);
+                    //console.log(data);
                     //console.log(data.status);
                     this.router.navigate(['/teach']);
                 },

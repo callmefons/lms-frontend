@@ -210,10 +210,8 @@ var AddCourseComponent = (function () {
             student.overall_xp = _this.xpForm.value.start_xp;
         });
         var newCourse = new add_course_1.AddCourse(this.courseForm.value.name, this.courseForm.value.description, this.xpForm.value.start_xp, this.xpForm.value.leader_board, this.levels, this.students);
-        console.log(newCourse);
         this.courseService.createNewCourse(newCourse)
             .subscribe(function (data) {
-            console.log(data);
             _this.router.navigate(['/teach']);
         }, function (error) { return console.log(error); });
     };

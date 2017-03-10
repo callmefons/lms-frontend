@@ -76,7 +76,6 @@ var StudentSigninComponent = (function () {
         this.student = new studentSignin(student.username, student.password);
         this.authService.signin(this.student)
             .subscribe(function (data) {
-            console.log(data);
             _this.errorMessage = data.errormessage;
             if (data.status == 'success' && data.data.role == 'student') {
                 _this.authService.setToken(data.data.token, 'student', data.data.id, data.data.activated);

@@ -87,7 +87,7 @@ export class StudentSigninComponent {
       this.authService.signin(this.student)
         .subscribe(
           (data: any) => {
-            console.log(data);
+            //console.log(data);
             this.errorMessage = data.errormessage;
             if(data.status == 'success' && data.data.role == 'student') {
               this.authService.setToken(data.data.token, 'student', data.data.id, data.data.activated);
