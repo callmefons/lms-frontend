@@ -32,7 +32,7 @@ export class TeacherService {
         let body = JSON.stringify(teacher);
         return this.http.post(`${this.registrationUrl}`, body, xhrHeaders())
             .map((res) => res.json())
-            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+           .catch((error:any) => Observable.throw(error.json()));
     }
 
     editTeacherProfile(teacher: Teacher): Observable<Teacher>{

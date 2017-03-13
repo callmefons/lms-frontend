@@ -32,7 +32,7 @@ var TeacherService = (function () {
         var body = JSON.stringify(teacher);
         return this.http.post("" + this.registrationUrl, body, xhr_headers_1.xhrHeaders())
             .map(function (res) { return res.json(); })
-            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
+            .catch(function (error) { return Rx_1.Observable.throw(error.json()); });
     };
     TeacherService.prototype.editTeacherProfile = function (teacher) {
         var body = JSON.stringify(teacher);

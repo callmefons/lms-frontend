@@ -21,7 +21,7 @@ const authRoutes: Routes = [{
     { path: 'signup',  component: SignupComponent },
     { path: 'forgotpassword',  component: ForgotPasswordComponent },
     { path: 'forgotpasswordstudent',  component: ForgotPasswordStudentComponent },
-    { path: 'password/reset/:token',  component: ResetPasswordComponent },
+    { path: 'password/reset',  component: ResetPasswordComponent },
   ]
 }];
 

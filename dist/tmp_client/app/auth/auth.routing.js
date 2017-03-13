@@ -18,7 +18,7 @@ var authRoutes = [{
             { path: 'signup', component: signup_component_1.SignupComponent },
             { path: 'forgotpassword', component: forgotpassword_component_1.ForgotPasswordComponent },
             { path: 'forgotpasswordstudent', component: forgotpasswordstudent_component_1.ForgotPasswordStudentComponent },
-            { path: 'password/reset/:token', component: resetpassword_component_1.ResetPasswordComponent },
+            { path: 'password/reset', component: resetpassword_component_1.ResetPasswordComponent },
         ]
     }];
 exports.authProviders = [

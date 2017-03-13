@@ -80,6 +80,7 @@ export class SignupComponent implements OnInit {
     this.display = true;
   }
 
+  errorMessage: string;
 
   onSubmit(teacher: Teacher) {
 
@@ -96,7 +97,10 @@ export class SignupComponent implements OnInit {
             this.showDialog();
           }
         },
-        (error) => console.log(error)
+      (error) => {
+        this.errorMessage = error[0];
+        console.log(error[0]);
+      }
     );
   }
 

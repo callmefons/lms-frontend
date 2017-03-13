@@ -13,9 +13,11 @@ import {ValidationService} from "../../services/validation.service";
 })
 export class ResetPasswordComponent implements OnInit{
 
+  successMessage:string;
   errorMessage: string;
   userForm: any;
   token: any;
+  email: any;
 
   constructor(private authService: AuthService,
               private formBuilder: FormBuilder,
@@ -27,13 +29,15 @@ export class ResetPasswordComponent implements OnInit{
   ngOnInit(){
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       this.token = params['token'];
+      this.email = params['email'];
       //console.log(this.token);
+      //console.log(this.email);
     });
   }
 
   createForm(){
     this.userForm = this.formBuilder.group({
-      'email': ['', [Validators.required, ValidationService.emailValidator]],
+      // 'email': [this.email, [Validators.required, ValidationService.emailValidator]],
       'password': ['', [Validators.required, ValidationService.passwordValidator]]
     });
   }
@@ -43,8 +47,9 @@ export class ResetPasswordComponent implements OnInit{
     //console.log(value);
 
     const newValue = new Object({
-      email: value.email,
+      email: this.email,
       password: value.password,
+      password_confirmation: value.password,
       token: this.token
     });
 
@@ -55,12 +60,26 @@ export class ResetPasswordComponent implements OnInit{
         (data: any) => {
           //this.createForm();
           //this.router.navigate(['/signin']);
-          console.log(data);
+          // this.errorMessage = data.errormessage;
+          //console.log(data);
+
+          if(data.status == 'error'){
+            this.errorMessage = 'Access token is invalid.';
+          }else {
+            this.userForm.password = '';
+            this.successMessage = 'Your password has been reset successfully.';
+            //this.router.navigate(['/auth/signin']);
+          }
+
         },
         (error:any) => {
           console.log(error);
         }
       );
+  }
+
+  goBack(){
+    this.router.navigate(['/auth/signin']);
   }
 
 }
