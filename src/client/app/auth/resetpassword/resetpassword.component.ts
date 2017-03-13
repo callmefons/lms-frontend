@@ -18,6 +18,7 @@ export class ResetPasswordComponent implements OnInit{
   userForm: any;
   token: any;
   email: any;
+  password: string = '';
 
   constructor(private authService: AuthService,
               private formBuilder: FormBuilder,
@@ -38,7 +39,7 @@ export class ResetPasswordComponent implements OnInit{
   createForm(){
     this.userForm = this.formBuilder.group({
       // 'email': [this.email, [Validators.required, ValidationService.emailValidator]],
-      'password': ['', [Validators.required, ValidationService.passwordValidator]]
+      'password': [this.password, [Validators.required, ValidationService.passwordValidator]]
     });
   }
 
@@ -64,9 +65,12 @@ export class ResetPasswordComponent implements OnInit{
           //console.log(data);
 
           if(data.status == 'error'){
+            this.password = '';
+            this.createForm();
             this.errorMessage = 'Access token is invalid.';
           }else {
-            this.userForm.password = '';
+            this.password = '';
+            this.createForm();
             this.successMessage = 'Your password has been reset successfully.';
             //this.router.navigate(['/auth/signin']);
           }
